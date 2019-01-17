@@ -11,10 +11,15 @@ import UIKit
 class PhotoViewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoImage: UIImageView!
+    override func prepareForReuse() {
+        photoImage.image = nil
+    }
     @IBOutlet weak var photoComment: UILabel!
     @IBOutlet weak var photoDate: UILabel!
-    override func prepareForReuse() {
-        photoImage.image = nil 
+
+    func updateCellUI(photos: PhotoJournal) {
+        photoComment.text = photos.description
+        photoDate.text = photos.createdAt
     }
     
 }
