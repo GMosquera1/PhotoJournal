@@ -13,7 +13,7 @@ class PhotoJournalViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var photoCV: UICollectionView!
     
     private var photoJournalViewController: UIImagePickerController!
     
@@ -27,7 +27,7 @@ class PhotoJournalViewController: UIViewController {
     private func updateUI() {
         if let photoJournal = PhotosJournalModel.getPhotoJournal() {
             let image = UIImage(data: photoJournal.imageData)
-            imageView.image = image
+           // UIImageView.image = image
         } else {
             print("Photo Journal Does Not Exist")
         }
