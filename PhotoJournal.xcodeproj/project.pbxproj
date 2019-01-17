@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		05BDDF8E21ED40F30017FD70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF8D21ED40F30017FD70 /* AppDelegate.swift */; };
-		05BDDF9021ED40F30017FD70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF8F21ED40F30017FD70 /* ViewController.swift */; };
+		05BDDF9021ED40F30017FD70 /* PhotoJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF8F21ED40F30017FD70 /* PhotoJournalViewController.swift */; };
 		05BDDF9321ED40F30017FD70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDF9121ED40F30017FD70 /* Main.storyboard */; };
 		05BDDF9521ED40F40017FD70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDF9421ED40F40017FD70 /* Assets.xcassets */; };
 		05BDDF9821ED40F40017FD70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDF9621ED40F40017FD70 /* LaunchScreen.storyboard */; };
+		05BDDFA021ED66810017FD70 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF9F21ED66810017FD70 /* DataPersistenceManager.swift */; };
+		05BDDFA221ED67E60017FD70 /* PJModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDFA121ED67E60017FD70 /* PJModel.swift */; };
+		05BDDFA421ED68500017FD70 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDFA321ED68500017FD70 /* File.swift */; };
+		05BDDFA621ED68AF0017FD70 /* PhotoJournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDFA521ED68AF0017FD70 /* PhotoJournalModel.swift */; };
+		05F34C5E21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F34C5D21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05BDDF8A21ED40F30017FD70 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BDDF8D21ED40F30017FD70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05BDDF8F21ED40F30017FD70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05BDDF8F21ED40F30017FD70 /* PhotoJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoJournalViewController.swift; sourceTree = "<group>"; };
 		05BDDF9221ED40F30017FD70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05BDDF9421ED40F40017FD70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05BDDF9721ED40F40017FD70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05BDDF9921ED40F40017FD70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05BDDF9F21ED66810017FD70 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		05BDDFA121ED67E60017FD70 /* PJModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJModel.swift; sourceTree = "<group>"; };
+		05BDDFA321ED68500017FD70 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		05BDDFA521ED68AF0017FD70 /* PhotoJournalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoJournalModel.swift; sourceTree = "<group>"; };
+		05F34C5D21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +65,42 @@
 			isa = PBXGroup;
 			children = (
 				05BDDF8D21ED40F30017FD70 /* AppDelegate.swift */,
-				05BDDF8F21ED40F30017FD70 /* ViewController.swift */,
+				05F34C5A21EFF57C00E305C6 /* File Manager Services */,
+				05F34C5C21EFF5AC00E305C6 /* Controllers */,
+				05F34C5B21EFF5A100E305C6 /* Models */,
+				05BDDFA521ED68AF0017FD70 /* PhotoJournalModel.swift */,
+				05BDDFA321ED68500017FD70 /* File.swift */,
 				05BDDF9121ED40F30017FD70 /* Main.storyboard */,
 				05BDDF9421ED40F40017FD70 /* Assets.xcassets */,
 				05BDDF9621ED40F40017FD70 /* LaunchScreen.storyboard */,
 				05BDDF9921ED40F40017FD70 /* Info.plist */,
 			);
 			path = PhotoJournal;
+			sourceTree = "<group>";
+		};
+		05F34C5A21EFF57C00E305C6 /* File Manager Services */ = {
+			isa = PBXGroup;
+			children = (
+				05BDDF9F21ED66810017FD70 /* DataPersistenceManager.swift */,
+			);
+			path = "File Manager Services";
+			sourceTree = "<group>";
+		};
+		05F34C5B21EFF5A100E305C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05BDDFA121ED67E60017FD70 /* PJModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		05F34C5C21EFF5AC00E305C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05BDDF8F21ED40F30017FD70 /* PhotoJournalViewController.swift */,
+				05F34C5D21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05BDDF9021ED40F30017FD70 /* ViewController.swift in Sources */,
+				05BDDFA421ED68500017FD70 /* File.swift in Sources */,
+				05BDDFA021ED66810017FD70 /* DataPersistenceManager.swift in Sources */,
+				05F34C5E21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift in Sources */,
+				05BDDF9021ED40F30017FD70 /* PhotoJournalViewController.swift in Sources */,
 				05BDDF8E21ED40F30017FD70 /* AppDelegate.swift in Sources */,
+				05BDDFA621ED68AF0017FD70 /* PhotoJournalModel.swift in Sources */,
+				05BDDFA221ED67E60017FD70 /* PJModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
