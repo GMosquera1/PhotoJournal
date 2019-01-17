@@ -11,25 +11,15 @@ import Foundation
 final class PhotosJournalModel {
     private static let filename = "PhotoJournalList.plist"
     private init() {}
+    private static var multiplePhotos = [PhotoJournal]()
     
-    static func savePhotoJournal(photoJournal: PhotoJournal) {
-        let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
-        do {
-            let data = try PropertyListEncoder().encode(photoJournal)
-            // atomic =  write all at once
-            try data.write(to: path, options: Data.WritingOptions.atomic)
-        } catch {
-            print("property list encoding error: \(error)")
-        }
-    }
-    
-    static func getPhotoJournal() -> PhotoJournal? {
+    static func getPhotoJournal() -> [PhotoJournal] {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename).path
-        var photoJournal: PhotoJournal?
+        //var photoJournal: PhotoJournal?
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
                 do {
-                    photoJournal = try PropertyListDecoder().decode(PhotoJournal.self, from: data)
+                    multiplePhotos = try PropertyListDecoder().decode([PhotoJournal].self, from: data)
                 } catch {
                     print("property list decoding error: \(error)")
                 }
@@ -39,8 +29,25 @@ final class PhotosJournalModel {
         } else {
             print("\(filename) does not exist")
         }
-        return photoJournal
+        multiplePhotos = multiplePhotos.sorted(by: {$0.createdAt > $1.createdAt})
+        return multiplePhotos
     }
-    
+    static func addPhoto(photo: PhotoJournal) {
+        multiplePhotos.append(photo)
+        savePhoto()
+    }
+    static func savePhoto() {
+        let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
+        do {
+            let data = try PropertyListEncoder().encode(multiplePhotos)
+            try data.write(to: path, options: Data.WritingOptions.atomic)
+        } catch {
+            print("property list encoding error: \(error)")
+        }
+    }
+    static func updateItem(updatedItem: PhotoJournal, atIndex index: Int) {
+        multiplePhotos[index] = updatedItem
+        savePhoto()
+    }
 }
 

@@ -14,31 +14,32 @@ class PhotoJournalViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     @IBOutlet weak var photoCV: UICollectionView!
-    
-    private var photoJournalViewController: UIImagePickerController!
+     var multiplePhotos = [PhotoJournal]()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      updateUI()
+       multiplePhotos = PhotosJournalModel.getPhotoJournal()
+     //   setupImagePickerViewController()
+     
     }
     
     
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "LibraryViewController") as! LibraryViewController
+        present(vc, animated: true, completion: nil)
+    }
+    // perhaps this goes in the cell controller
+//    private func updateUI() {
+//        if let photoJournal = PhotosJournalModel.getPhotoJournal() {
+//            let image = UIImage(data: photoJournal.imageData)
+//
+//        } else {
+//            print("Photo Journal Does Not Exist")
+//        }
+//    }
 
-    private func updateUI() {
-        if let photoJournal = PhotosJournalModel.getPhotoJournal() {
-            let image = UIImage(data: photoJournal.imageData)
-           // UIImageView.image = image
-        } else {
-            print("Photo Journal Does Not Exist")
-        }
-    }
-    
-    private func setupImagePickerViewController() {
-        photoJournalViewController = UIImagePickerController()
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            
-        }
-    }
 
 }
-

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05014AA821F04479008C499E /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05014AA721F04479008C499E /* LibraryViewController.swift */; };
 		05BDDF8E21ED40F30017FD70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF8D21ED40F30017FD70 /* AppDelegate.swift */; };
 		05BDDF9021ED40F30017FD70 /* PhotoJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDF8F21ED40F30017FD70 /* PhotoJournalViewController.swift */; };
 		05BDDF9321ED40F30017FD70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDF9121ED40F30017FD70 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05014AA721F04479008C499E /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		05BDDF8A21ED40F30017FD70 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BDDF8D21ED40F30017FD70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05BDDF8F21ED40F30017FD70 /* PhotoJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoJournalViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				05BDDF8F21ED40F30017FD70 /* PhotoJournalViewController.swift */,
 				05F34C5D21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift */,
+				05014AA721F04479008C499E /* LibraryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				05BDDFA421ED68500017FD70 /* File.swift in Sources */,
 				05BDDFA021ED66810017FD70 /* DataPersistenceManager.swift in Sources */,
+				05014AA821F04479008C499E /* LibraryViewController.swift in Sources */,
 				05F34C5E21EFFCD200E305C6 /* PhotoViewCollectionViewCell.swift in Sources */,
 				05BDDF9021ED40F30017FD70 /* PhotoJournalViewController.swift in Sources */,
 				05BDDF8E21ED40F30017FD70 /* AppDelegate.swift in Sources */,
