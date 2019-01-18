@@ -11,6 +11,7 @@ import AVFoundation
 
 class PhotoJournalViewController: UIViewController {
     
+    
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     @IBOutlet weak var photoCV: UICollectionView!
@@ -47,10 +48,12 @@ class PhotoJournalViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (_) in
+            self.sharePhoto(index: sender.tag)
             print("User clicked 'Share' button")
         }))
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (_) in
+            self.setView()
             print("User clicked 'Edit' button")
         }))
         
@@ -66,8 +69,18 @@ class PhotoJournalViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
     }
 
-  
+    func setView() {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "LibraryViewController") as! LibraryViewController
+        viewController.modalPresentationStyle = .currentContext
+        present(viewController, animated: true, completion: nil)
+    }
     
+    func sharePhoto(index: Int) {
+        let imageToShare = multiplePhotos[index]
+        let activityViewController = UIActivityViewController(activityItems: [imageToShare], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
     
     // perhaps this goes in the cell controller
 //    private func updateUI() {
@@ -91,6 +104,8 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         cell.photoImage.image = UIImage.init(data: item.imageData)
         cell.photoComment.text = item.description
         cell.photoDate.text = item.dateFormattedString
+        cell.optionsButton.tag = indexPath.row
+        
         return cell
     }
     

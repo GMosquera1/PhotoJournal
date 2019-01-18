@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoViewCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var optionsButton: UIButton!
     @IBOutlet weak var photoImage: UIImageView!
     override func prepareForReuse() {
         photoImage.image = nil

@@ -88,6 +88,7 @@
                                             <constraint firstItem="nVr-9G-84k" firstAttribute="leading" secondItem="gho-KT-Wwc" secondAttribute="leadingMargin" constant="12" id="yCP-7O-EIZ"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="optionsButton" destination="gXb-VD-q3u" id="iOA-rG-XAe"/>
                                             <outlet property="photoComment" destination="nVr-9G-84k" id="Y1V-jB-HzS"/>
                                             <outlet property="photoDate" destination="Gki-65-e7O" id="hlD-5h-hZL"/>
                                             <outlet property="photoImage" destination="h5r-wT-Aqy" id="oXp-mu-LDQ"/>
