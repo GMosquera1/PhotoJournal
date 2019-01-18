@@ -13,9 +13,16 @@ class PhotoJournalViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     @IBOutlet weak var photoCV: UICollectionView!
-     var multiplePhotos = [PhotoJournal]()
-   
+    
+    public var multiplePhotos = [PhotoJournal]()
+    
+    private var imagePickerVC: UIImagePickerController!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +38,14 @@ class PhotoJournalViewController: UIViewController {
         let vc = storyBoard.instantiateViewController(withIdentifier: "LibraryViewController") as! LibraryViewController
         present(vc, animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
     // perhaps this goes in the cell controller
 //    private func updateUI() {
 //        if let photoJournal = PhotosJournalModel.getPhotoJournal() {

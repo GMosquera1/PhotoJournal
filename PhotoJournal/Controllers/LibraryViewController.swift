@@ -22,11 +22,16 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagePickerViewController()
+        updateUI()
     }
     
+    private func updateUI() {
+      
+        
+    }
     private func setupImagePickerViewController() {
         imagePickerViewController = UIImagePickerController()
-       // photoJournalViewController.delegate = self
+        imagePickerViewController.delegate = self
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
            
         }
@@ -73,5 +78,6 @@ extension LibraryViewController: UIImagePickerControllerDelegate, UINavigationCo
             
             
         }
+        dismiss(animated: true, completion: nil)
     }
 }
