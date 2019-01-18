@@ -24,12 +24,16 @@ class PhotoJournalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoCV.dataSource = self
        multiplePhotos = PhotosJournalModel.getPhotoJournal()
      //   setupImagePickerViewController()
         print(DataPersistenceManager.documentsDirectory())
      
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        photoCV.reloadData()
+    }
     
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -54,4 +58,19 @@ class PhotoJournalViewController: UIViewController {
 //    }
 
 
+}
+extension PhotoJournalViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return PhotosJournalModel.getPhotoJournal().count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = photoCV.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoViewCollectionViewCell else { return UICollectionViewCell()}
+        let item = PhotosJournalModel.getPhotoJournal()[indexPath.row]
+        cell.photoImage.image = UIImage.init(data: item.imageData)
+        cell.photoComment.text = item.description
+        cell.photoDate.text = item.dateFormattedString
+        return cell
+    }
+    
+    
 }
