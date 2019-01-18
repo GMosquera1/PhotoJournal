@@ -17,7 +17,11 @@ class PhotoJournalViewController: UIViewController {
     @IBOutlet weak var photoCV: UICollectionView!
     
     
-    public var multiplePhotos = [PhotoJournal]()
+    public var multiplePhotos = [PhotoJournal](){
+        didSet {
+            photoCV.reloadData()
+        }
+    }
     
     private var imagePickerVC: UIImagePickerController!
     
@@ -58,6 +62,8 @@ class PhotoJournalViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+            PhotosJournalModel.deletePhoto(atIndex: sender.tag)
+            self.multiplePhotos = PhotosJournalModel.getPhotoJournal()
             print("User clicked 'Delete' button")
         }))
         

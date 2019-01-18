@@ -36,6 +36,12 @@ final class PhotosJournalModel {
         multiplePhotos.append(photo)
         savePhoto()
     }
+    
+    static func deletePhoto(atIndex: Int) {
+        multiplePhotos.remove(at: atIndex)
+        savePhoto()
+    }
+    
     static func savePhoto() {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
         do {
