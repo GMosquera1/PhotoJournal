@@ -9,8 +9,8 @@
 import Foundation
 
 final class PhotosJournalModel {
-    private static let filename = "PhotoJournalList.plist"
-    private init() {}
+    private static let filename = "PhotoJournal.plist"
+    //private init() {}
     private static var multiplePhotos = [PhotoJournal]()
     
     static func getPhotoJournal() -> [PhotoJournal] {
@@ -19,7 +19,7 @@ final class PhotosJournalModel {
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
                 do {
-                    multiplePhotos = try PropertyListDecoder().decode([PhotoJournal].self, from: data)
+        multiplePhotos = try PropertyListDecoder().decode([PhotoJournal].self, from: data)
                 } catch {
                     print("property list decoding error: \(error)")
                 }

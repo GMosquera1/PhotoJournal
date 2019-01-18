@@ -138,7 +138,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rLV-II-uME"/>
                                     <barButtonItem style="plain" systemItem="camera" id="mRC-ot-7Ta">
                                         <connections>
-                                            <action selector="cameraPressed:" destination="Oz4-iC-yXE" id="kfN-AD-63Q"/>
+                                            <action selector="cameraButtonPressed:" destination="0kT-Py-7a1" id="7Y3-td-oyn"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -156,6 +156,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ri8-dA-nWT">
                                         <rect key="frame" x="341" y="0.0" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="0kT-Py-7a1" eventType="touchUpInside" id="ZiV-PH-WQq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -192,12 +195,12 @@
                         <viewLayoutGuide key="safeArea" id="kt8-tY-L65"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="mRC-ot-7Ta" id="2gF-jD-ybN"/>
                         <outlet property="commentText" destination="s5t-dB-lea" id="NOJ-Nl-Hsa"/>
                         <outlet property="imageView" destination="fwk-FA-7Ot" id="EWK-nH-yk5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrB-0n-zGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Oz4-iC-yXE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="820" y="139.880059970015"/>
         </scene>

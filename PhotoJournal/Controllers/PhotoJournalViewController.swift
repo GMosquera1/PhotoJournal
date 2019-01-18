@@ -13,10 +13,8 @@ class PhotoJournalViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
-    
     @IBOutlet weak var photoCV: UICollectionView!
+    
     
     public var multiplePhotos = [PhotoJournal]()
     
@@ -28,6 +26,7 @@ class PhotoJournalViewController: UIViewController {
         super.viewDidLoad()
        multiplePhotos = PhotosJournalModel.getPhotoJournal()
      //   setupImagePickerViewController()
+        print(DataPersistenceManager.documentsDirectory())
      
     }
     
@@ -41,9 +40,7 @@ class PhotoJournalViewController: UIViewController {
     
     
     
-    @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
-        
-    }
+  
     
     
     // perhaps this goes in the cell controller

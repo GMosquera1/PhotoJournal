@@ -10,15 +10,17 @@ import UIKit
 import AVFoundation
 
 class LibraryViewController: UIViewController {
-
+    
     
     @IBOutlet weak var commentText: UITextView!
     
-    
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
-     private var imagePickerViewController: UIImagePickerController!
+    
+    private var imagePickerViewController: UIImagePickerController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagePickerViewController()
@@ -26,22 +28,34 @@ class LibraryViewController: UIViewController {
     }
     
     private func updateUI() {
-      
+        
         
     }
     private func setupImagePickerViewController() {
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-           
+            cameraButton.isEnabled = false
         }
-    
+        
     }
     
     private func showImagePickerController() {
         present(imagePickerViewController, animated: true, completion: nil)
     }
     
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        let data = imageView.image?.pngData()
+        let date = Date()
+        let isoDataFormatter = ISO8601DateFormatter()
+        isoDataFormatter.formatOptions = [.withFullDate, .withFullTime, .withTimeZone, .withDashSeparatorInDate]
+        let timeStamp = isoDataFormatter.string(from: date)
+        guard let itemDescription = commentText.text else { fatalError("Item Description is nil")}
+    let stored = PhotoJournal.init(createdAt: timeStamp, imageData: data!, description: itemDescription)
+        PhotosJournalModel.addPhoto(photo: stored)
+        dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func cancelButton(_ sender: UIButton) {
