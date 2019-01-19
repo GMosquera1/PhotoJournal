@@ -57,7 +57,12 @@ class PhotoJournalViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (_) in
-            self.setView()
+//            self.setView()
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let viewController = storyBoard.instantiateViewController(withIdentifier: "LibraryViewController") as! LibraryViewController
+            viewController.modalPresentationStyle = .currentContext
+            viewController.photo = self.multiplePhotos[sender.tag]
+                self.present(viewController, animated: true, completion: nil)
             print("User clicked 'Edit' button")
         }))
         
@@ -76,15 +81,17 @@ class PhotoJournalViewController: UIViewController {
     }
 
     func setView() {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "LibraryViewController") as! LibraryViewController
-        viewController.modalPresentationStyle = .currentContext
-        present(viewController, animated: true, completion: nil)
+//        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let viewController = storyBoard.instantiateViewController(withIdentifier: "LibraryViewController") as! LibraryViewController
+//        viewController.modalPresentationStyle = .currentContext
+//        viewController.photo =
+//        present(viewController, animated: true, completion: nil)
     }
     
     func sharePhoto(index: Int) {
         let imageToShare = multiplePhotos[index]
         let activityViewController = UIActivityViewController(activityItems: [imageToShare], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view 
         present(activityViewController, animated: true, completion: nil)
     }
     

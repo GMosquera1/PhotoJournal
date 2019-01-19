@@ -11,6 +11,7 @@ import AVFoundation
 
 class LibraryViewController: UIViewController {
     
+    public var photo: PhotoJournal!
     
     @IBOutlet weak var commentText: UITextView!
     
@@ -28,7 +29,9 @@ class LibraryViewController: UIViewController {
     }
     
     private func updateUI() {
-        
+        if let photo = photo {
+            self.imageView.image = UIImage.init(data: photo.imageData)
+        }
         
     }
     private func setupImagePickerViewController() {
